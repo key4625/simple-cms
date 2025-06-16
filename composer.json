@@ -1,0 +1,12 @@
+{
+    "name": "keysol/simple-cms",
+    "description": "A simple CMS with PHP, SQLite, and Bootstrap",
+    "autoload": {
+        "psr-4": {
+            "SimpleCMS\\": "src/"
+        }
+    },
+    "require": {
+        "jenssegers/blade": "^2.0"
+    }
+}
