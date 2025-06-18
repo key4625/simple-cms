@@ -1,0 +1,43 @@
+# File di database
+src/database.sqlite
+src/database.sqlite.bak
+*.sqlite-journal
+
+# Directory cache e upload
+src/cache/*
+!src/cache/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Dipendenze
+/vendor/
+/node_modules/
+
+# Credenziali e configurazioni locali
+.env
+config.local.php
+
+# File temporanei
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# File di Visual Studio Code
+.vscode/
+*.code-workspace
+
+# File di PhpStorm
+.idea/
+
+# File generati automaticamente
+composer.lock
+package-lock.json
+
+# Altro
+.phpunit.result.cache
+phpunit.xml
+.phpcs-cache
+*.swp
+*.swo
