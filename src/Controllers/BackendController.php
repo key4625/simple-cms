@@ -388,5 +388,72 @@ class BackendController
         
         header('Location: /admin/categories');
         exit;
+    }    public function uploadImage()
+    {
+        $this->checkLogin();
+        
+        // Verifica che ci sia un file caricato
+        // CKEditor 5 usa 'upload' come nome del parametro
+        $inputName = isset($_FILES['upload']) ? 'upload' : 'file';
+        
+        if (!isset($_FILES[$inputName]) || $_FILES[$inputName]['error'] !== 0) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'Nessun file caricato o errore di upload'
+                ]
+            ]);
+            exit;
+        }
+        
+        $target_dir = __DIR__ . '/../../uploads/';
+        
+        // Crea la directory se non esiste
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        
+        $filename = time() . '_' . basename($_FILES[$inputName]['name']);
+        $target_file = $target_dir . $filename;
+        
+        // Controlla il tipo di file (solo immagini)
+        $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $file_type = mime_content_type($_FILES[$inputName]['tmp_name']);
+        
+        if (!in_array($file_type, $allowed_types)) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'Tipo di file non supportato. Solo immagini consentite.'
+                ]
+            ]);
+            exit;
+        }
+        
+        // Carica il file
+        if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $target_file)) {
+            // Restituisce l'URL dell'immagine caricata
+            $image_url = '/uploads/' . $filename;
+            
+            header('Content-Type: application/json');
+            
+            // Formato della risposta compatibile con CKEditor 5
+            echo json_encode([
+                'uploaded' => true,
+                'url' => $image_url
+            ]);
+            exit;
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'Errore nel caricamento del file'
+                ]
+            ]);
+            exit;
+        }
     }
 }

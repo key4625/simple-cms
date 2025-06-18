@@ -45,6 +45,7 @@ $router->post('/admin/articles/create', 'BackendController@createArticle');
 $router->get('/admin/articles/edit/:id', 'BackendController@editArticle');
 $router->post('/admin/articles/update/:id', 'BackendController@updateArticle');
 $router->get('/admin/articles/delete/:id', 'BackendController@deleteArticle');
+$router->post('/admin/upload-image', 'BackendController@uploadImage');
 
 // Rotte per la gestione categorie
 $router->get('/admin/categories', 'BackendController@categories');

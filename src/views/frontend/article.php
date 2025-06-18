@@ -43,9 +43,8 @@ $template->include('frontend/header', ['pageTitle' => $pageTitle]);
         <div class="article-description lead mb-4">
             <?= htmlspecialchars($article['description']) ?>
         </div>
-        
-        <div class="article-content">
-            <?= nl2br(htmlspecialchars($article['content'])) ?>
+          <div class="article-content">
+            <?= $article['content'] ?>
         </div>
     </article>
     

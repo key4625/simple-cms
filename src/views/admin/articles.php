@@ -55,7 +55,7 @@ $template->include('admin/header', ['pageTitle' => $pageTitle]);
                                     <a href="/admin/articles/edit/<?= $article['id'] ?>" class="btn btn-sm btn-primary" title="Modifica">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="/view/article/<?= $article['id'] ?>" class="btn btn-sm btn-info" title="Visualizza" target="_blank">
+                                    <a href="../article/<?= $article['id'] ?>" class="btn btn-sm btn-info" title="Visualizza" target="_blank">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <a href="#" class="btn btn-sm btn-danger" title="Elimina" 
