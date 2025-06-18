@@ -11,6 +11,8 @@ uploads/*
 
 # Dipendenze
 /vendor/
+/vendor/*
+vendor/*
 /node_modules/
 
 # Credenziali e configurazioni locali

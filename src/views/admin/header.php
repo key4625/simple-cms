@@ -26,7 +26,7 @@
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-3">
                     <div class="d-flex align-items-center pb-3 mb-3 border-bottom">
-                        <h3 class="fs-4 fw-bold ps-2">CMS Admin</h3>
+                        <h3 class="fs-4 fw-bold ps-2 text-white">CMS Admin</h3>
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -66,3 +66,4 @@
                             <span class="text-muted">Benvenuto, <?= htmlspecialchars($_SESSION['username']) ?></span>
                         </div>
                     <?php endif; ?>
+                </div>

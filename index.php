@@ -23,6 +23,10 @@ $router->get('/', 'FrontendController@index');
 $router->get('/article/:id', 'FrontendController@article');
 $router->get('/category/:id', 'FrontendController@category');
 $router->get('/license', 'FrontendController@license');
+$router->get('/chisono', 'FrontendController@chisono');
+$router->get('/contatti', 'FrontendController@contatti');
+$router->post('/invia-email', 'FrontendController@inviaEmail');
+
 
 // Definizione delle rotte di autenticazione
 $router->get('/login', [BackendController::class, 'login']);

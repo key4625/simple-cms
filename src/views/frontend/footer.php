@@ -1,4 +1,7 @@
-    </main>    <footer class="footer mt-auto py-3 bg-light">
+    </main>    
+     
+    <footer class="footer mt-auto py-3 bg-light">
+        <a class="nav-link text-center" href="/login">Admin</a>
         <div class="container text-center">
             <p class="mb-0">&copy; <?= date('Y') ?> Simple CMS - Tutti i diritti riservati</p>
             <p class="small text-muted">Rilasciato sotto <a href="/license">licenza Creative Commons Attribution 4.0</a></p>

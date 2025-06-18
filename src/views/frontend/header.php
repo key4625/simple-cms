@@ -40,11 +40,11 @@
                             // Qui potresti generare dinamicamente le categorie dal database
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/contatti">Contatti</a>
-                            </li>
+                                <a class="nav-link" href="/chisono">Chi sono</a>
+                            </li>      
                             <li class="nav-item">
-                                <a class="nav-link" href="/login">Admin</a>
-                            </li>
+                                <a class="nav-link" href="/contatti">Contatti</a>
+                            </li>                            
                         </ul>
                     </div>
                 </nav>

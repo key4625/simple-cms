@@ -40,6 +40,7 @@ class ComposerStaticInitc356af8e9b10986e382e9780032c1d0b
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'J' => 
         array (
@@ -112,6 +113,10 @@ class ComposerStaticInitc356af8e9b10986e382e9780032c1d0b
         'Psr\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Jenssegers\\Blade\\' => 
         array (
