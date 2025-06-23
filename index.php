@@ -55,7 +55,7 @@ $router->get('/admin/categories/edit/:id', 'BackendController@editCategory');
 $router->post('/admin/categories/update/:id', 'BackendController@updateCategory');
 $router->get('/admin/categories/delete/:id', 'BackendController@deleteCategory');
 
-// Aggiunta di un controllo per correggere i percorsi
-$_SERVER['REQUEST_URI'] = str_replace('/simple-cms', '', $_SERVER['REQUEST_URI']);
+// Non serve più la correzione dei percorsi hardcoded qui,
+// il router ora usa la configurazione base_url
 
 $router->dispatch();

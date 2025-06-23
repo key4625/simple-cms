@@ -6,8 +6,13 @@
  * @license http://creativecommons.org/licenses/by/4.0/ Creative Commons Attribution 4.0
  */
 
-// Configurazione email
+// Configurazione generale
 return [
+    // Impostazione del percorso base dell'applicazione (senza trailing slash)
+    // Esempi: '' per la root, '/simple-cms' per una sottocartella
+    'base_url' => '/',
+    
+    // Configurazione email
     'email' => [
         'smtp_host' => 'smtp.example.com',
         'smtp_port' => 587,

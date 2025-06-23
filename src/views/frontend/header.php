@@ -4,6 +4,7 @@
  * @copyright Copyright (c) 2025
  * @license http://creativecommons.org/licenses/by/4.0/ Creative Commons Attribution 4.0
  -->
+<?php include_once __DIR__ . '/../view_helpers.php'; ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,15 +16,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Stili personalizzati -->
-    <link href="/src/assets/css/frontend/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">    <!-- Stili personalizzati -->
+    <link href="<?= base_path('/src/assets/css/frontend/style.css') ?>" rel="stylesheet">
 </head>
 <body>
     <header class="py-3 mb-4 border-bottom">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-between">
-                <a href="/" class="d-flex align-items-center mb-2 mb-md-0 text-dark text-decoration-none">
+                <a href="<?= base_path('/') ?>" class="d-flex align-items-center mb-2 mb-md-0 text-dark text-decoration-none">
                     <h3 class="blog-title">Simple CMS</h3>
                 </a>
                 
@@ -31,19 +31,18 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
+                    <div class="collapse navbar-collapse" id="navbarNav">                        <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
+                                <a class="nav-link" href="<?= base_path('/') ?>">Home</a>
                             </li>
                             <?php
                             // Qui potresti generare dinamicamente le categorie dal database
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/chisono">Chi sono</a>
+                                <a class="nav-link" href="<?= base_path('/chisono') ?>">Chi sono</a>
                             </li>      
                             <li class="nav-item">
-                                <a class="nav-link" href="/contatti">Contatti</a>
+                                <a class="nav-link" href="<?= base_path('/contatti') ?>">Contatti</a>
                             </li>                            
                         </ul>
                     </div>

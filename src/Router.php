@@ -44,17 +44,28 @@ class Router
         }
         
         return $params;
-    }
-
-    public function dispatch()
+    }    public function dispatch()
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         
+        // Ottieni il base_url dalla configurazione
+        $config = require __DIR__ . '/config.php';
+        $baseUrl = isset($config['base_url']) ? $config['base_url'] : '';
+        
+        // Rimuovi il base_url dall'URI se presente
+        if (!empty($baseUrl) && strpos($uri, $baseUrl) === 0) {
+            $uri = substr($uri, strlen($baseUrl));
+        }
+        
+        // Assicurati che l'URI inizi con / (anche se è vuoto dopo la rimozione del base_url)
+        if (empty($uri)) {
+            $uri = '/';
+        }
+        
         // Prima, prova a trovare una corrispondenza diretta
         if (isset($this->routes[$method][$uri])) {
             $action = $this->routes[$method][$uri];
-            
             // Gestisci sia array che stringhe con formato controller@method
             if (is_array($action)) {
                 [$controller, $method] = $action;

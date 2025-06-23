@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "SimpleCMS\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "require": {
         "phpmailer/phpmailer": "^6.8"

@@ -24,21 +24,31 @@ class TemplateEngine
             self::$instance = new self();
         }
         return self::$instance;
-    }
-
-    public function render($view, $data = [])
+    }    public function render($view, $data = [])
     {
         $viewPath = $this->viewsPath . '/' . $view . '.php';
 
         if (!file_exists($viewPath)) {
             throw new \Exception("View {$view} not found.");
         }
-
-        // Estrai i dati come variabili
-        extract($data);
-
-        // Inizia il buffer di output
+          // Carica la configurazione
+        $config = require __DIR__ . '/config.php';
+        $baseUrl = isset($config['base_url']) ? $config['base_url'] : '';
+        
+        // Normalizziamo il valore di base_url per evitare problemi con gli slash
+        if ($baseUrl === '/') {
+            $baseUrl = '';
+        }
+        
+        // Aggiungi il base_url alle variabili disponibili nelle viste
+        $data['base_url'] = $baseUrl;        // Estrai i dati come variabili
+        extract($data);        // Inizia il buffer di output
         ob_start();
+        
+        // Includi le funzioni helper
+        if (file_exists(__DIR__ . '/views/view_helpers.php')) {
+            include_once __DIR__ . '/views/view_helpers.php';
+        }
         
         // Includi il file di vista
         include $viewPath;
@@ -48,8 +58,7 @@ class TemplateEngine
         
         return $content;
     }
-    
-    /**
+      /**
      * Include un altro file di vista
      * 
      * @param string $view Nome della vista da includere
@@ -63,8 +72,23 @@ class TemplateEngine
             throw new \Exception("View {$view} not found.");
         }
         
-        // Estrai i dati come variabili
+        // Carica la configurazione per il base_url
+        $config = require __DIR__ . '/config.php';
+        $baseUrl = isset($config['base_url']) ? $config['base_url'] : '';
+        
+        // Normalizziamo il valore di base_url per evitare problemi con gli slash
+        if ($baseUrl === '/') {
+            $baseUrl = '';
+        }
+        
+        // Aggiungiamo il base_url ai dati
+        $data['base_url'] = $baseUrl;        // Estrai i dati come variabili
         extract($data);
+        
+        // Includi le funzioni helper
+        if (file_exists(__DIR__ . '/views/view_helpers.php')) {
+            include_once __DIR__ . '/views/view_helpers.php';
+        }
         
         // Include la vista
         include $viewPath;

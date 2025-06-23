@@ -20,12 +20,14 @@ CMS semplice realizzato in PHP per la gestione di un blog. Permette di creare, m
 
 ## Installazione
 
-
 1. Clona o scarica il repository
 2. Posiziona i file nella directory del tuo server web
 3. Esegui `composer install` per installare le dipendenze
-4. Esegui `php init_database.php` per inizializzare il database
-5. Accedi all'area amministrativa usando:
+4. Configurazione (opzionale):
+   - Se il CMS è installato in una sottocartella, modifica `src/config.php` impostando il `base_url` corrispondente
+   - Esempio: se il CMS è accessibile tramite `http://tuosito.com/simple-cms`, imposta `'base_url' => '/simple-cms'`
+5. Esegui `php init_database.php` per inizializzare il database
+6. Accedi all'area amministrativa usando:
    - Username: admin
    - Password: admin123
 
